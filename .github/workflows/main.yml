@@ -1,8 +1,8 @@
 name: My Workflow
 
 on:
-  push:
-    branches: [ "main" ]
+  repository_dispatch:
+    types: [manual-trigger]
 
 jobs:
   my-job:
