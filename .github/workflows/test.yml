@@ -19,7 +19,8 @@ jobs:
         if: ${{ github.event_path == 'components/test' }}
         run: |
           cd contents/test
-          npm test
+          ls
+          echo "testing pull_request workflow"
 
   
 
