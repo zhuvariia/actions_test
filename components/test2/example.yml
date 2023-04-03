@@ -20,4 +20,4 @@ spec:
         - containerPort: 80
 
     
-        ### test, test, test!!!!
+        ### test, test, test and test!!!
