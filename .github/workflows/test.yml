@@ -5,6 +5,8 @@ on:
     branches: ["main"]
     paths: 
       - "components/test/**"
+  workflow_dispatch:
+    
 
 jobs:
   my-job:
