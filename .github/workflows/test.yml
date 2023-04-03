@@ -22,12 +22,18 @@ jobs:
             path2:
               - 'components/test2/**'
       
-      - name: Run tests
+      - name: Run path 1
         if: steps.filter.outputs.path1 == 'true'
         run: |
           cd components/test
           ls
-          echo "testing pull_request workflow"
-
+          echo "testing path 1"
+          
+      - name: Run path 2
+        if: steps.filter.outputs.path2 == 'true'
+        run: |
+          cd components/test2
+          ls
+          echo "testing path 2"
   
 
