@@ -5,6 +5,7 @@ on:
     branches: ["main"]
     paths:
       - 'components/test/**'
+      - 'components/test2/**'
 
   workflow_dispatch:
 
@@ -18,7 +19,7 @@ jobs:
       - name: Run tests
         if: ${{ github.event_path == 'components/test' }}
         run: |
-          cd contents/test
+          cd components/test
           ls
           echo "testing pull_request workflow"
 
