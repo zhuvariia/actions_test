@@ -16,7 +16,7 @@ jobs:
 
       - name: Run workflow
         run: |
-          if ${{ github.event_path == "components/test" }}
+          if ${{ github.event_path == 'components/test' }}
           cd components/test
           ls
           echo "Testing GH Actions!"
