@@ -3,9 +3,6 @@ name: Pre-merge test
 on:
   pull_request:
     branches: ["main"]
-    paths:
-      - 'components/test/**'
-      - 'components/test2/**'
 
   workflow_dispatch:
 
@@ -15,9 +12,18 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            path1:
+              - 'components/test/**'
+            path2:
+              - 'components/test2/**'
       
       - name: Run tests
-        if: ${{ github.event_path == 'components/test' }}
+        if: steps.filter.outputs.path1 == 'true'
         run: |
           cd components/test
           ls
