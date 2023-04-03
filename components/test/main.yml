@@ -20,4 +20,4 @@ spec:
         - containerPort: 80
 
     
-        ### please work, come on!
+        ### it will work!
