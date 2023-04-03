@@ -13,4 +13,8 @@ jobs:
       - uses: actions/checkout@v1
 
       - name: Run workflow
-        run: echo "Testing GH Actions!"
+        run: |
+          if [[ $${{ github.event_path }} == *"components/test"* ]]; then
+          cd components/test
+          ls
+          echo "Testing GH Actions!"
