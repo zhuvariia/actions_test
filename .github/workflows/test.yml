@@ -3,20 +3,23 @@ name: Pre-merge test
 on:
   pull_request:
     branches: ["main"]
-    paths: 
-      - "components/test/**"
+    paths:
+      - 'components/test/**'
+
   workflow_dispatch:
-    
 
 jobs:
-  my-job:
+  my_job:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-
-      - name: Run workflow
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Run tests
+        if: ${{ github.event_path == 'components/test' }}
         run: |
-          if ${{ github.event_path == "components/test" }}
-          cd components/test
-          ls
-          echo "Testing GH Actions!"
+          cd contents/test
+          npm test
+
+  
+
